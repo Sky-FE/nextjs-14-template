@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { IframeProvider } from "@/components/IframeProvider";
+import QueryProvider from "@/components/QueryProvider";
 
 export const metadata: Metadata = {
   title: "Teable App",
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <IframeProvider>{children}</IframeProvider>
+        <QueryProvider>
+          <IframeProvider>{children}</IframeProvider>
+        </QueryProvider>
       </body>
     </html>
   );
