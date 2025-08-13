@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { IframeProvider } from "@/components/IframeProvider";
 import QueryProvider from "@/components/QueryProvider";
+import ToasterClient from "@/components/ToasterClient";
 
 export const metadata: Metadata = {
   title: "Teable App",
@@ -17,7 +18,10 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <QueryProvider>
-          <IframeProvider>{children}</IframeProvider>
+          <IframeProvider>
+            <ToasterClient />
+            {children}
+          </IframeProvider>
         </QueryProvider>
       </body>
     </html>
